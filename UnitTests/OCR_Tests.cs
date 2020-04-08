@@ -8,7 +8,7 @@ using tinyOCREngine;
 namespace UnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class OCR_Tests
     {
         static IEnumerable<object[]> getTestData()
         {
@@ -25,7 +25,7 @@ namespace UnitTests
 
         [TestMethod()]
         [DynamicData(nameof(getTestData), DynamicDataSourceType.Method)]
-        public void Test_Images(string filePath, string expected)
+        public void Test_GetTextFromImage_ImagesFromFiles(string filePath, string expected)
         {
             // Act
             var actual = OCR.GetTextFromImage(filePath);
