@@ -10,7 +10,6 @@ namespace UnitTests
     [TestClass]
     public class OCR_Tests
     {
-
         static IEnumerable<object[]> getTestData()
         {
             DirectoryInfo d = new DirectoryInfo(@"..\..\..\data");
