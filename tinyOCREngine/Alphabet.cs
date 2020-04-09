@@ -174,7 +174,6 @@ namespace tinyOCREngine
             return x;
         }
 
-
         public static bool isA(Bitmap image)
         {
             try
@@ -196,9 +195,10 @@ namespace tinyOCREngine
                 i = goUpWhite(image, half, --i);
 
                 bool b = false;
-                goUpBlack(image, half, --i, out b);
-
                 var pixel = image.GetPixel(half, middle);
+                b = Isolator.isDarkA(image, half, --i);
+
+                pixel = image.GetPixel(half, middle);
                 if (b && !Isolator.isDarkA(pixel))
                 {
                     Isolator.scanUnsafe(image, half, middle);
@@ -236,7 +236,6 @@ namespace tinyOCREngine
 
                 bool b = true;
                 i--;
-                //               i = goUpWhite(image, half, --i, out b);
 
 
                 var pixel = image.GetPixel(half, middle);
