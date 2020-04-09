@@ -277,12 +277,26 @@ namespace tinyOCREngine
 
                 int middle = i + (j / 2);
 
-                i = goUpBlack(image, half, --i);
+                bool b = false;
+                try
+                {
+                    i = goUpBlack(image, half, --i);
+                    i = goUpWhite(image, half, --i);
+                }
+                catch
+                {
+                    b = true;
+                }
+
+                if (!b)
+                    return false;
+
+                i = goDownWhite(image, half, 0);
 
                 var t = i / 2;
                 var tt = i - 1;
 
-                bool b = true;
+                b = true;
                 i--;
 
                 var pixel = image.GetPixel(half, middle);
