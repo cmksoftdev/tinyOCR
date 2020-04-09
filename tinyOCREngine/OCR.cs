@@ -61,8 +61,16 @@ namespace tinyOCREngine
                     text += "g";
                 else if (Alphabet.isH((Bitmap)img.Image))
                     text += "h";
+                else if (Alphabet.isI((Bitmap)img.Image))
+                    text += "i";
+                else if (Alphabet.isJ((Bitmap)img.Image))
+                    text += "j";
                 else if (Alphabet.isK((Bitmap)img.Image))
                     text += "k";
+                else if (Alphabet.isL((Bitmap)img.Image))
+                    text += "l";
+                else if (Alphabet.isM((Bitmap)img.Image))
+                    text += "m";
                 else if (Alphabet.isN((Bitmap)img.Image))
                     text += "n";
                 else if (Alphabet.isP((Bitmap)img.Image))
@@ -71,6 +79,24 @@ namespace tinyOCREngine
                     text += "q";
                 else if (Alphabet.isO((Bitmap)img.Image))
                     text += "o";
+                else if (Alphabet.isR((Bitmap)img.Image))
+                    text += "r";
+                else if (Alphabet.isS((Bitmap)img.Image))
+                    text += "s";
+                else if (Alphabet.isT((Bitmap)img.Image))
+                    text += "t";
+                else if (Alphabet.isU((Bitmap)img.Image))
+                    text += "u";
+                else if (Alphabet.isV((Bitmap)img.Image))
+                    text += "v";
+                else if (Alphabet.isW((Bitmap)img.Image))
+                    text += "w";
+                else if (Alphabet.isX((Bitmap)img.Image))
+                    text += "x";
+                else if (Alphabet.isY((Bitmap)img.Image))
+                    text += "y";
+                else if (Alphabet.isZ((Bitmap)img.Image))
+                    text += "z";
                 else
                     text += "-";
             }

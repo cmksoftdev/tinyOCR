@@ -102,16 +102,16 @@ namespace tinyOCREngine
                 notScanned = list.Where(item => !item.IsScanned).ToList();
                 foreach (var posi in notScanned)
                 {
-                    var all = new Position[8]
+                    var all = new Position[]
                     {
-                        new Position(posi.X-1, posi.Y-1),
+                        //new Position(posi.X-1, posi.Y-1),
                         new Position(posi.X, posi.Y-1),
-                        new Position(posi.X+1, posi.Y-1),
+                        //new Position(posi.X+1, posi.Y-1),
                         new Position(posi.X-1, posi.Y),
                         new Position(posi.X+1, posi.Y),
-                        new Position(posi.X-1, posi.Y+1),
+                        //new Position(posi.X-1, posi.Y+1),
                         new Position(posi.X, posi.Y+1),
-                        new Position(posi.X+1, posi.Y+1)
+                        //new Position(posi.X+1, posi.Y+1)
                     };
                     foreach (var newPosi in all)
                     {
@@ -195,16 +195,16 @@ namespace tinyOCREngine
                 {
                     if (isInImage(image, posi))
                     {
-                        var all = new Position[8]
+                        var all = new Position[]
                         {
-                        new Position(posi.X-1, posi.Y-1),
+                        //new Position(posi.X-1, posi.Y-1),
                         new Position(posi.X, posi.Y-1),
-                        new Position(posi.X+1, posi.Y-1),
+                        //new Position(posi.X+1, posi.Y-1),
                         new Position(posi.X-1, posi.Y),
                         new Position(posi.X+1, posi.Y),
-                        new Position(posi.X-1, posi.Y+1),
+                        //new Position(posi.X-1, posi.Y+1),
                         new Position(posi.X, posi.Y+1),
-                        new Position(posi.X+1, posi.Y+1)
+                        //new Position(posi.X+1, posi.Y+1)
                         };
                         foreach (var newPosi in all)
                         {
@@ -240,16 +240,16 @@ namespace tinyOCREngine
                 {
                     if (isInImage(posi))
                     {
-                        var all = new Position[8]
+                        var all = new Position[]
                         {
-                        new Position(posi.X-1, posi.Y-1),
+                        //new Position(posi.X-1, posi.Y-1),
                         new Position(posi.X, posi.Y-1),
-                        new Position(posi.X+1, posi.Y-1),
+                        //new Position(posi.X+1, posi.Y-1),
                         new Position(posi.X-1, posi.Y),
                         new Position(posi.X+1, posi.Y),
-                        new Position(posi.X-1, posi.Y+1),
+                        //new Position(posi.X-1, posi.Y+1),
                         new Position(posi.X, posi.Y+1),
-                        new Position(posi.X+1, posi.Y+1)
+                        //new Position(posi.X+1, posi.Y+1)
                         };
                         foreach (var newPosi in all)
                         {

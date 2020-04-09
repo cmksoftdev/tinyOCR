@@ -202,7 +202,20 @@ namespace tinyOCREngine
                 if (b && !Isolator.isDarkA(pixel))
                 {
                     Isolator.scanUnsafe(image, half, middle);
-                    return true;
+
+                    i = goDownWhite(image, half, 0);
+                    i = goDownBlack(image, half, ++i);
+                    ++i;
+                    try
+                    {
+                        Isolator.scanUnsafe(image, half, i);
+                    }
+                    catch
+                    {
+                        return true;
+                    }
+                    //if (Isolator.OpenToSite(image, half, i) == 4)
+                    return false;
                 }
                 return false;
             }
@@ -631,8 +644,8 @@ namespace tinyOCREngine
                 i = goUpWhite(image, xMiddle, --i, out b);
                 if (!b)
                     return false;
-                i = goUpBlack(image, xMiddle, --i, out b);
-                if (!b)
+                //i = goUpBlack(image, xMiddle, --i, out b);
+                if (!Isolator.isDarkA(image, xMiddle, --i))
                     return false;
 
                 Isolator.scanUnsafe(image, xMiddle, yMiddle);
@@ -642,8 +655,6 @@ namespace tinyOCREngine
             {
                 return false;
             }
-
-            return false;
         }
 
         public static bool isP(Bitmap image)
@@ -764,17 +775,14 @@ namespace tinyOCREngine
 
             try
             {
-                int i = 1;
-                bool b = false;
-                i = goRightWhite(image, i, yMiddle);
-                i = goRightBlack(image, ++i, yMiddle, out b);
-                if (!b)
-                    return false;
-                i = goRightWhite(image, ++i, yMiddle, out b);
-                if (!b)
-                    return false;
-                //i = goRightBlack(image, ++i, yMiddle, out b);
+                int i = goRightWhite(image, xMiddle, yMiddle);
+
                 if (!Isolator.isDarkA(image, ++i, yMiddle))
+                    return false;
+
+                i = goLeftWhite(image, xMiddle, yMiddle);
+
+                if (!Isolator.isDarkA(image, --i, yMiddle))
                     return false;
 
                 var open = Isolator.OpenToSite(image, xMiddle, yMiddle);
