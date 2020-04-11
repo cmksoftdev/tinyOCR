@@ -43,9 +43,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alphabet.cs" />
+    <Compile Include="AutoImageAnalyser.cs" />
     <Compile Include="OCR.cs" />
     <Compile Include="Isolator.cs" />
+    <Compile Include="OcrAnalyseEnvironment.cs" />
+    <Compile Include="OcrAnalyseStep.cs" />
+    <Compile Include="OcrAnalyseSteps.cs" />
+    <Compile Include="OcrAutoAnalysedData.cs" />
+    <Compile Include="OcrBlackLine.cs" />
     <Compile Include="OCRData.cs" />
+    <Compile Include="OcrDefinition.cs" />
+    <Compile Include="OcrWhitePlaces.cs" />
+    <Compile Include="OctDefinitionConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serializer.cs" />
   </ItemGroup>

@@ -51,6 +51,34 @@ namespace tinyOCREngine
             return y;
         }
 
+        public static int goDownWhite_s(Bitmap image, int x, int y, out bool isCalled, out bool isEnded)
+        {
+            isCalled = false;
+            isEnded = false;
+            while (Isolator.isInImage(image, x, y) && !Isolator.isDarkA(image, x, y))
+            {
+                isCalled = true;
+                ++y;
+            }
+            if (!Isolator.isInImage(image, x, y))
+                isEnded = true;
+            return y;
+        }
+
+        public static int goDownBlack_s(Bitmap image, int x, int y, out bool isCalled, out bool isEnded)
+        {
+            isCalled = false;
+            isEnded = false;
+            while (Isolator.isInImage(image, x, y) && Isolator.isDarkA(image, x, y))
+            {
+                isCalled = true;
+                ++y;
+            }
+            if (!Isolator.isInImage(image, x, y))
+                isEnded = true;
+            return y;
+        }
+
         /*** Go Up ***/
         static int goUpWhite(Bitmap image, int x, int y)
         {
@@ -89,6 +117,34 @@ namespace tinyOCREngine
                 isCalled = true;
                 pixel = image.GetPixel(x, --y);
             }
+            return y;
+        }
+
+        public static int goUpWhite_s(Bitmap image, int x, int y, out bool isCalled, out bool isEnded)
+        {
+            isCalled = false;
+            isEnded = false;
+            while (Isolator.isInImage(image, x, y) && !Isolator.isDarkA(image, x, y))
+            {
+                isCalled = true;
+                --y;
+            }
+            if (!Isolator.isInImage(image, x, y))
+                isEnded = true;
+            return y;
+        }
+
+        public static int goUpBlack_s(Bitmap image, int x, int y, out bool isCalled, out bool isEnded)
+        {
+            isCalled = false;
+            isEnded = false;
+            while (Isolator.isInImage(image, x, y) && Isolator.isDarkA(image, x, y))
+            {
+                isCalled = true;
+                --y;
+            }
+            if (!Isolator.isInImage(image, x, y))
+                isEnded = true;
             return y;
         }
 
@@ -133,6 +189,34 @@ namespace tinyOCREngine
             return x;
         }
 
+        public static int goLeftWhite_s(Bitmap image, int x, int y, out bool isCalled, out bool isEnded)
+        {
+            isCalled = false;
+            isEnded = false;
+            while (Isolator.isInImage(image, x, y) && !Isolator.isDarkA(image, x, y))
+            {
+                isCalled = true;
+                --x;
+            }
+            if (!Isolator.isInImage(image, x, y))
+                isEnded = true;
+            return x;
+        }
+
+        public static int goLeftBlack_s(Bitmap image, int x, int y, out bool isCalled, out bool isEnded)
+        {
+            isCalled = false;
+            isEnded = false;
+            while (Isolator.isInImage(image, x, y) && Isolator.isDarkA(image, x, y))
+            {
+                isCalled = true;
+                --x;
+            }
+            if (!Isolator.isInImage(image, x, y))
+                isEnded = true;
+            return x;
+        }
+
         /*** Go Right ***/
         static int goRightWhite(Bitmap image, int x, int y)
         {
@@ -171,6 +255,34 @@ namespace tinyOCREngine
                 isCalled = true;
                 pixel = image.GetPixel(++x, y);
             }
+            return x;
+        }
+
+        public static int goRightWhite_s(Bitmap image, int x, int y, out bool isCalled, out bool isEnded)
+        {
+            isCalled = false;
+            isEnded = false;
+            while (Isolator.isInImage(image, x, y) && !Isolator.isDarkA(image, x, y))
+            {
+                isCalled = true;
+                ++x;
+            }
+            if (!Isolator.isInImage(image, x, y))
+                isEnded = true;
+            return x;
+        }
+
+        public static int goRightBlack_s(Bitmap image, int x, int y, out bool isCalled, out bool isEnded)
+        {
+            isCalled = false;
+            isEnded = false;
+            while (Isolator.isInImage(image, x, y) && Isolator.isDarkA(image, x, y))
+            {
+                isCalled = true;
+                ++x;
+            }
+            if (!Isolator.isInImage(image, x, y))
+                isEnded = true;
             return x;
         }
 

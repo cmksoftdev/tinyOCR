@@ -72,13 +72,13 @@ namespace tinyOCREngine
                 y >= 0 && y < image.Height;
         }
 
-        static bool isInImage(Image image, int x, int y)
+        public static bool isInImage(Image image, int x, int y)
         {
             return x >= 0 && x < image.Width &&
                 y >= 0 && y < image.Height;
         }
 
-        static bool isInImage(Image image, Position posi)
+        public static bool isInImage(Image image, Position posi)
         {
             return isInImage(image, posi.X, posi.Y);
         }
@@ -165,14 +165,15 @@ namespace tinyOCREngine
                         }
                         catch
                         {
-                            if (newPosi.Y < 1)
+                            if (newPosi.Y < 0)
                                 return 1;
                             else if (newPosi.X >= image.Width)
                                 return 2;
                             else if (newPosi.Y >= image.Height)
                                 return 3;
-                            else if (newPosi.X < 1)
+                            else if (newPosi.X < 0)
                                 return 4;
+                            else return 0;
                         }
                     }
                     posi.IsScanned = true;

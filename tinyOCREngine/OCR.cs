@@ -30,12 +30,33 @@ namespace tinyOCREngine
 
         OCRData data;
 
+        static OcrAutoAnalysedDatas analysedDatas = null;
 
         public static string GetTextFromImage(string filePath)
         {
             using (var image = Image.FromFile(filePath))
-                return GetTextFromImage(image);
+            {
+                var iso = new Isolator();
+                var result = iso.Isolate(image);
+                var text = "";
+
+                if(analysedDatas == null)
+                    analysedDatas = AutoImageAnalyser.AnalyseData(@"D:\Develop\CSharp\tinyOCR\data");
+
+                foreach (var img in result)
+                {
+                    text += AutoImageAnalyser.GetString(img.Image, analysedDatas);
+                }
+
+                return text;
+            }
         }
+
+        //public static string GetTextFromImage(string filePath)
+        //{
+        //    using (var image = Image.FromFile(filePath))
+        //        return GetTextFromImage(image);
+        //}
 
         public static string GetTextFromImage(Image image)
         {
