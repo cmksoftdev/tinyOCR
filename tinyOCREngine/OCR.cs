@@ -41,7 +41,7 @@ namespace tinyOCREngine
                 var text = "";
 
                 if(analysedDatas == null)
-                    analysedDatas = AutoImageAnalyser.AnalyseData(@"D:\Develop\CSharp\tinyOCR\data");
+                    analysedDatas = AutoImageAnalyser.AnalyseData(@"..\..\..\data");
 
                 foreach (var img in result)
                 {
